@@ -3,6 +3,7 @@ include_once _PROJECT_PATH_.'/model/db.class.singleton.php';
 class ControllerCore{
 
     private function addWhereStatement($array){
+        debug($array    );
         $conditions=count($array);
         $query='';
         $limit='';
@@ -12,9 +13,14 @@ class ControllerCore{
         foreach ($array as $row => $value){
             if ($row=='limit'){
                 $limit = $this->addLimitStatement($value);
+                $conditions--;
+            } else if ($row=='orderby'){
+                $query = $this->addOrderByStatement($value);
+                $conditions--;
+            } else if ($row=='count'){
+                $conditions--;
             } else {
-                $query .= $row." LIKE '".str_replace('!','%',$value)."'";
-                // $mbd->prepare();
+                $query .= $row." LIKE '".str_replace('!','%',$value)."'"; 
                 $conditions--;
                 if ($conditions>0){
                     $query .= ' AND ';
@@ -36,6 +42,11 @@ class ControllerCore{
         }
         return $query;
     }
+    private function addOrderByStatement($order){
+        $query='';
+        $query .= ' ORDER BY '.$order;
+        return $query;
+    }
 
     protected function runQuery($query){
         $con = DB::getInstance();
@@ -44,9 +55,11 @@ class ControllerCore{
     }
 
     protected function buildGETQuery($data){
-        // get parameters in ajax
         $query = 'SELECT * FROM '.$this->tableName;
         if ($data!="" && is_array($data)){
+            if (isset($data['count'])){
+                $query = 'SELECT COUNT(*) as rowcount FROM '.$this->tableName;
+            }
             $query .= $this->addWhereStatement($data);
         }
         return $query;

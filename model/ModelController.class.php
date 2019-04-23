@@ -7,6 +7,7 @@ class ModelController extends ControllerCore{
     }
 
     public function request($data, $func){
+        // debug($data);
         $query=$this->$func($data);        
         return $this->runQuery($query);
     }

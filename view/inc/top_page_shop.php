@@ -57,7 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<script type="text/javascript" src="module/shop/model/main_shop.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
 
 	<!-- main js from home module -->
-	<script type="text/javascript" src="module/home/model/main_home.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
+	<script type="text/javascript" src="module/home/view/js/main_home.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
 	<!-- login -->
 	<script type="text/javascript" src="module/login/model/main_login.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
 	<link rel="stylesheet" href="module/login/view/main_login_css.css">

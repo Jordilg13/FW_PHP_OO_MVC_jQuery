@@ -59,7 +59,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/menu.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
 
 	<!-- main js from home module -->
-	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/home/model/main_home.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
+	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/home/view/js/main_home.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
 
 	<!-- login -->
 	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/login/model/main_login.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
@@ -85,6 +85,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 	<link href="<? echo _PROJECT_URL_; ?>/view/js/toastr/build/toastr.css" rel="stylesheet"/>
 	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/toastr/toastr.js"></script>
+
+	<!-- pagination -->
+	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/jquery.bootpag.min.js"></script>
+	<link rel="stylesheet" href="<? echo _PROJECT_URL_; ?>/view/css/pagination.css">
+	
 
 
 </head>
