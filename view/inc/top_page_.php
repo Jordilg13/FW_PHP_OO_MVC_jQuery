@@ -1,3 +1,4 @@
+<!-- TODO: posar un unic top i un unic bot -->
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -81,8 +82,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<link rel="stylesheet" href="<? echo _PROJECT_URL_; ?>/view/css/dropzone.css">
 
 	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/jsonserialize.js"></script>
+	
+	<link href="<? echo _PROJECT_URL_; ?>/view/js/toastr/build/toastr.css" rel="stylesheet"/>
+	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/toastr/toastr.js"></script>
 
-	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/contact_us/view/js/contactus.js"></script>
 
 </head>
 <body>

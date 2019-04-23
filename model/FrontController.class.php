@@ -13,18 +13,11 @@ class FrontController {
         return self::$_instance;
     }
 
-    private function unknownToHome($cutted){
-        if (isset($cutted[2]) && $cutted[2]=='page'){
-            return $cutted[3];
-        } else 
-            return "home";
-    }
-
     private function getAllowedPages(){
         $allowedPages=array(
             'aboutus',
             'cart',
-            'contact_us',
+            'contactus',
             'home',
             'likes',
             'shop',
@@ -38,15 +31,13 @@ class FrontController {
 
     public function run(){
         include_once dirname(__FILE__).'/../paths.php';
-
-        $allowedPages=$this->getAllowedPages();
-
+        $allowedPages=$this->getAllowedPages(); 
         $this->uri=rtrim($this->uri, '/');
         $cutUrl=explode('/',$this->uri);
-        $pagename=$this->unknownToHome($cutUrl);
+        $cutUrl[2] = (!isset($cutUrl[2])) ? "home" : $cutUrl[2];
 
+        // debug($cutUrl[2]);
         if (isset($cutUrl[2]) && $cutUrl[2]=='api') {    //  localhost/web../api/xxxxxx
-
             if (in_array($cutUrl[3],$allowedPages)){
                 $getParams=array_slice($cutUrl,4);
                 foreach ($getParams as $getParam){
@@ -58,25 +49,26 @@ class FrontController {
                 header('HTTP/1.0 404 Not found');
             }
 
-        } else {  //  localhost/web../page/xxxxxx
-
-            if (file_exists(_PROJECT_PATH_.'/view/inc/top_page_'.$pagename.".php")) 
-                include_once _PROJECT_PATH_.'/view/inc/top_page_'.$pagename.".php";
+        } else { //  localhost/web../page/xxxxxx
+          
+            // header
+            if (file_exists(_PROJECT_PATH_.'/view/inc/top_page_'.$cutUrl[2].".php")) 
+                include_once _PROJECT_PATH_.'/view/inc/top_page_'.$cutUrl[2].".php";
             else
                 include_once _PROJECT_PATH_.'/view/inc/top_page_.php';
 
             include_once _PROJECT_PATH_.'/view/inc/menu.php';
-            // $actual_page = $this->getPageFormatted();
 
-            if (in_array($pagename,$allowedPages))
-                include_once 'module/'.$pagename.'/view/'.$pagename.".html";
+            // view
+            if (in_array($cutUrl[2],$allowedPages))
+                include_once 'module/'.$cutUrl[2].'/view/'.$cutUrl[2].".html";
             else 
                 include_once "view/inc/error404.php";
             
-    
+            // footer
             include_once _PROJECT_PATH_.'/view/inc/footer.php';
-            if (file_exists(_PROJECT_PATH_.'/view/inc/bottom_page_'.$pagename.'.php'))
-                include_once _PROJECT_PATH_.'/view/inc/bottom_page_'.$pagename.'.php';
+            if (file_exists(_PROJECT_PATH_.'/view/inc/bottom_page_'.$cutUrl[2].'.php'))
+                include_once _PROJECT_PATH_.'/view/inc/bottom_page_'.$cutUrl[2].'.php';
             else 
                 include_once _PROJECT_PATH_.'/view/inc/bottom_page_.php';
             
@@ -85,4 +77,3 @@ class FrontController {
     }
 }
 ?>
- <!-- $this->uri = "/web_framework_php/page/home"; -->

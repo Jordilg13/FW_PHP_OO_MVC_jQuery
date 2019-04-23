@@ -12,7 +12,7 @@
 			case 'login':
 				include("module/login/view/view_login.php");
 				break;
-			case 'contact_us':
+			case 'contactus':
 				include("module/contact/contactus.php");
 				break;
 			case 'cart_controller':

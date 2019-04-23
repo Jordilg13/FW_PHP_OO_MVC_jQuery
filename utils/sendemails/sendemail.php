@@ -25,11 +25,8 @@ function send_mailgun($email, $subject, $html){
 	curl_setopt($ch, CURLOPT_POST, true); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS,$message);
 	$result = curl_exec($ch);
+	debug("res: ".$result);
 	curl_close($ch);
 	return $result;
-}
-if ($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] =="127.0.0.1") {
-	$json = send_mailgun('jordillopis00@gmail.com',"SubjectExample","afsadfasfDFSFASDDFASDFdfs");
-	print_r($json);  
 }
    

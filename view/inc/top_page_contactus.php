@@ -65,6 +65,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/login/model/main_login.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
 	<link rel="stylesheet" href="<? echo _PROJECT_URL_; ?>/module/login/view/main_login_css.css">
 
+	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/jsonserialize.js"></script>
+	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/contactus/view/js/contactus.js"></script>
+
+	<link href="<? echo _PROJECT_URL_; ?>/view/js/toastr/build/toastr.css" rel="stylesheet"/>
+	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/toastr/toastr.js"></script>
+
 </head>
 <body>
 

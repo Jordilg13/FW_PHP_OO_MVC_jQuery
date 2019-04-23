@@ -81,7 +81,7 @@ function validateInfo() {
 function logout() {
   $.ajax({
     type: 'GET',
-    url: 'module/login/controller/login_controller.php?op=logout',
+    url: '/module/login/controller/login_controller.php?op=logout',
     success: function (data) {
       // console.log('asdf');
 
@@ -95,7 +95,7 @@ function logout() {
 function setLoggedUser() {
   $.ajax({
     type: 'GET',
-    url: 'module/login/controller/login_controller.php?op=logged_user',
+    url: '/module/login/controller/login_controller.php?op=logged_user',
     success: function (data) {
       // console.log(data);
       if (data != "no logged") {
@@ -190,7 +190,7 @@ function getUserInfo(id) {
   return new Promise(function (resolve, reject) {
     $.ajax({
       type: 'POST',
-      url: 'module/login/controller/login_controller.php?op=user_info',
+      url: '/module/login/controller/login_controller.php?op=user_info',
       data: id,
       dataType: 'json',
       success: function (data) {
@@ -208,7 +208,7 @@ function getUserId() {
   // use: 
   return $.ajax({
     type: 'GET',
-    url: 'module/login/controller/login_controller.php?op=logged_user',
+    url: '/module/login/controller/login_controller.php?op=logged_user',
     dataType: 'json',
     async: false,
     success: function (data) {
@@ -218,7 +218,7 @@ function getUserId() {
 function login() {
   $.ajax({
     type: 'POST',
-    url: 'module/login/controller/login_controller.php?op=login',
+    url: '/module/login/controller/login_controller.php?op=login',
     data: $('#login-form').serializeArray(),
     success: function (data) {
       console.log(data);
@@ -274,7 +274,7 @@ function regenerate_session_id() {
   window.setTimeout(function(){
     $.ajax({
       type: 'GET',
-      url: 'module/login/controller/login_controller.php?&op=regenerate_id',
+      url: '/module/login/controller/login_controller.php?&op=regenerate_id',
       dataType: 'json',
       success: function(data){
         console.log(data);
@@ -303,7 +303,7 @@ function goInactive() {
   setInterval(function(){ 
 			$.ajax({
 				type: 'GET',
-				url: 'module/login/controller/login_controller.php?&op=set_time_activity',	
+				url: '/module/login/controller/login_controller.php?&op=set_time_activity',	
 				dataType: 'json',
 				success: function(data){
 					console.log(data);
@@ -312,7 +312,7 @@ function goInactive() {
 
 			$.ajax({
 				type : 'GET',
-				url  : 'module/login/controller/login_controller.php?&op=activity',
+				url  : '/module/login/controller/login_controller.php?&op=activity',
 				success :  function(response){
           console.log(response);			
 					if(response=="inactivo"){
@@ -329,7 +329,7 @@ function goActive() {
   
   $.ajax({
     type: 'GET',
-    url: 'module/login/controller/login_controller.php?&op=reset_activity_time',
+    url: '/module/login/controller/login_controller.php?&op=reset_activity_time',
     dataType: 'json',
     success: function(data){
     }
@@ -386,7 +386,7 @@ $(document).ready(function () {
 
       $.ajax({
         type: 'POST',
-        url: 'module/login/controller/login_controller.php?op=register',
+        url: '/module/login/controller/login_controller.php?op=register',
         data: user_info,
         success: function (data) {
           // console.log(data);

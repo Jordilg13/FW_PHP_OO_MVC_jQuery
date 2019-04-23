@@ -5,7 +5,7 @@ function changeLang(lang){
     // console.log(lang);
     $.ajax({ 
         type: 'GET', 
-        url: 'view/languages/'+lang+'.json', 
+        url: '/view/languages/'+lang+'.json', 
         dataType: 'json',
         success: function (data) { 
             var elems = document.querySelectorAll('[data-tr]');

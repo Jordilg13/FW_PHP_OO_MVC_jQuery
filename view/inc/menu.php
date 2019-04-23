@@ -20,10 +20,10 @@
                     <a class="nav-link text-uppercase" id="home_button" href="<? echo _PROJECT_URL_; ?>" data-tr="Homepage">Homepage</a>
                 </li>
                 <li>
-                    <a class="nav-link text-uppercase" id="products_crud" href="<? echo _PROJECT_URL_; ?>/page/products_crud/op/list" data-tr="Products">Products</a>
+                    <a class="nav-link text-uppercase" id="products_crud" href="<? echo _PROJECT_URL_; ?>/products_crud/op/list" data-tr="Products">Products</a>
                 </li>
                 <li>
-                    <a class="nav-link text-uppercase" id="contact_us" href="<? echo _PROJECT_URL_; ?>/page/contact_us" data-tr="Contact Us">Contact Us</a>
+                    <a class="nav-link text-uppercase" id="contactus" href="<? echo _PROJECT_URL_; ?>/contactus" data-tr="Contact Us">Contact Us</a>
                 </li>
                 <!-- <li class="nav-item dropd	own">
 						<a class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -41,10 +41,10 @@
 						</div>
 					</li> -->
                 <li>
-                    <a class="nav-link text-uppercase" id="likes_controller" href="<? echo _PROJECT_URL_; ?>/page/likes/op/list" data-tr="Likes">Likes</a>
+                    <a class="nav-link text-uppercase" id="likes_controller" href="<? echo _PROJECT_URL_; ?>/likes/op/list" data-tr="Likes">Likes</a>
                 </li>
                 <li>
-                    <a class="nav-link text-uppercase" id="shop_controller" href="<? echo _PROJECT_URL_; ?>/page/shop/op/list" data-tr="Shop">Shop</a>
+                    <a class="nav-link text-uppercase" id="shop_controller" href="<? echo _PROJECT_URL_; ?>/shop/op/list" data-tr="Shop">Shop</a>
                 </li>
             </ul>
             <div class="top-info text-lg-right text-center mt-lg-0 mt-3">
