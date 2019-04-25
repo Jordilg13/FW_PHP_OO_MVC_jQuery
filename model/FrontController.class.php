@@ -52,11 +52,8 @@ class FrontController {
         } else { //  localhost/web../page/xxxxxx
           
             // header
-            if (file_exists(_PROJECT_PATH_.'/view/inc/top_page_'.$cutUrl[2].".php")) 
-                include_once _PROJECT_PATH_.'/view/inc/top_page_'.$cutUrl[2].".php";
-            else
-                include_once _PROJECT_PATH_.'/view/inc/top_page_.php';
-
+            include_once _PROJECT_PATH_.'/view/inc/top_html.html';
+            include_once _PROJECT_PATH_.'/view/inc/uniq_top_page.php';
             include_once _PROJECT_PATH_.'/view/inc/menu.php';
 
             // view

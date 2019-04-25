@@ -48,7 +48,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script> -->
 
     <script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/home/model/main_products.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
     <script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/lang.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>

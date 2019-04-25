@@ -8,26 +8,6 @@ function num_products(sel) {
     }
     
 }
-function printProductsPage(data) {
-    data.forEach(prod => {
-        $('#home_products').append(sprintf(template_prod,
-                                      [ prod['product_code'],
-                                        prod['product_name'],
-                                        prod['price'],
-                                        prod['product_code']]));
-    });
-}
-function getProductsPage(index) {
-    $.ajax({
-        type: "GET",
-        url: "api/home/limit-"+index+",4",
-        dataType: "json",
-        success: function(data){
-            console.log(data);
-            printProductsPage(data);
-        }
-    });
-}
 
 
 $(document).ready(function () {
@@ -44,28 +24,6 @@ $(document).ready(function () {
 	</div>`;
 
     // print home products
-    $.ajax({
-        type: 'GET',
-        url: 'api/home/count-1',
-        dataType: 'json',
-        success: function(data){
-            console.log(data);
-            getProductsPage(0); // first page
-
-            $("#pagination").bootpag({
-                total: Math.ceil(data[0].rowcount/4),
-                page: 1,
-                maxVisible: 5,
-                leaps: true,
-                firstLastUse: true,
-                first: "<<",
-                last: ">>"
-            }).on("page", function (event, page) {
-                var start = (page-1)*4;
-                $('#home_products').html('');
-                getProductsPage(start);
-            });
-        }
-    })
+    pagination("home","#home_products","");
     
 });

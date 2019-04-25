@@ -44,7 +44,7 @@
                     <a class="nav-link text-uppercase" id="likes_controller" href="<? echo _PROJECT_URL_; ?>/likes/op/list" data-tr="Likes">Likes</a>
                 </li>
                 <li>
-                    <a class="nav-link text-uppercase" id="shop_controller" href="<? echo _PROJECT_URL_; ?>/shop/op/list" data-tr="Shop">Shop</a>
+                    <a class="nav-link text-uppercase" id="shop_controller" href="<? echo _PROJECT_URL_; ?>/shop" data-tr="Shop">Shop</a>
                 </li>
             </ul>
             <div class="top-info text-lg-right text-center mt-lg-0 mt-3">

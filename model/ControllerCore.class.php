@@ -1,6 +1,8 @@
 <?
 include_once _PROJECT_PATH_.'/model/db.class.singleton.php';
 class ControllerCore{
+    // LIMIT must go first of all
+    // COUNT mustn't be last
 
     private function addWhereStatement($array){
         debug($array    );
@@ -62,6 +64,7 @@ class ControllerCore{
             }
             $query .= $this->addWhereStatement($data);
         }
+        error_log($query);
         return $query;
     }
     protected function buildPOSTQuery($data){
