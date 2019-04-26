@@ -25,5 +25,28 @@ $(document).ready(function () {
 
     // print home products
     pagination("home","#home_products","");
+
+
+    $('#submit_button_searcher_home').on("click", function () {
+        
+        var elementscollection = $('#product_name, #brand, #available_until');
+        var params = {};
+        // params is setted with the 3 search parameters, if they are empty, a ! is setted instead
+        for (let i = 0; i < elementscollection.length; i++) {
+            params[elementscollection[i].id]=elementscollection[i].value+"!"
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "utils/session/setSession.php",
+            data: {sessionvar: "home_search_params", home_search_params: params},
+            success: function(data){
+                if (data == '"setted"') {
+                    window.location.href="shop";
+                }
+                console.log(data);
+            }
+        });
+    });
     
 });

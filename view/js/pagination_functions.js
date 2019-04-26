@@ -8,35 +8,30 @@ function printProductsPage(data,id_div) {
     });
 }
 function getProductsPage(index,id_div,mod,url) {
-    console.log("api/"+mod+"/limit-"+index+",4/"+url.replace("api/"+mod+"/",""));
     
     $.ajax({
         type: "GET",
         url: "api/"+mod+"/limit-"+index+",4/"+url.replace("api/"+mod+"/",""),
         dataType: "json",
         success: function(data){
-            console.log(data);
             printProductsPage(data,id_div);
         }
     });
 }
 function pagination(mod,id_div,url) {
     $(id_div).html(''); // clear previous products
-    console.log("url: "+url);
 
     if (url.length === 0) {
         ajax_url = "api/"+mod+"/count-1";
     } else {
         ajax_url = "api/"+mod+"/count-1/"+url;
     }
-    console.log(ajax_url);
     
     $.ajax({
         type: 'GET',
         url: ajax_url,
         dataType: 'json',
         success: function(data){
-            console.log(data);
             getProductsPage(0,id_div, mod,url); // first page
             $("#pagination").off(); // disable existent event listeners, to set the news
 
