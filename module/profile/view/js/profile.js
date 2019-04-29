@@ -72,17 +72,30 @@ $(document).ready(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'module/profile/model/profile.php?id='+getUserId().responseText,
+        // url: 'module/profile/model/profile.php?id='+getUserId().responseText,
+        url: "api/profile/id-"+getUserId(),
         dataType: 'json',
         success: function(data){
             console.log(data);
             for (var key in data[0]) {
                 // if is the profile_img, set it, if not, set the value of the input
-                if (key == "profile_img") {
+                if (key == "img") {
                     $('#'+key).attr("src", "http://localhost/web_framework_php/media/"+data[0][key]);
                 } else if (key == "location") {
-                    console.log(data[0][key].split("-")[0]);
-                    console.log(getInfoCountry(data[0][key].split("-")[0]));
+                    var locat = data[0][key].split("-");
+                    console.log(locat);
+                    var country = getInfoCountry(locat[0]);
+                    var province = getProvinceFromCode(country['item']['filename'],data[0][key]);
+                    console.log(province);
+                    
+                    
+                    document.getElementById("countries").selectedIndex = country['index'];
+                    $('#countries').change();
+                    setTimeout(function(){document.getElementById("provinces").selectedIndex = province['index']},100); // TODO: change this 
+                    
+                    
+
+                    // $('#provinces').val(getInfoCountry(locat[1])['name']);
                 } else {
                     // $("#"+key).val(data[0][key]);
                     if (key != "password") {
@@ -93,19 +106,22 @@ $(document).ready(function () {
         }
     });
 
+
     $(".file-upload").on('change', function () {
         readURL(this);
     });
 
     var ok_flag = false;
     $("#dropzone").dropzone({
-        url: "module/profile/controller/controller_profile.php?upload=true",
+        // url: "module/profile/controller/controller_profile.php?upload=true",
+        url: "api/profile/upload-true",
         addRemoveLinks: true,
         maxFileSize: 1000,
         dictResponseError: "An error has occurred on the server",
         acceptedFiles: 'image/*,.jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF',
         init: function () {
             this.on("success", function (file, response) {
+                console.log(response);
                 response = JSON.parse(response);
                 //alert(response);
                 $("#progress").show();
@@ -122,9 +138,9 @@ $(document).ready(function () {
         complete: function (file) {
             console.log(ok_flag);
             if((file.status == "success") && (ok_flag)){
-            // alert("El archivo se ha subido correctamente: " + file.name);
-            // console.log(file);
-            $('.avatar').attr("src","media/"+getUserId().responseText+"_"+file.name);
+                // alert("El archivo se ha subido correctamente: " + file.name);
+                console.log("media/"+getUserId()+"_"+file.name);
+                $('.avatar').attr("src","media/"+getUserId()+"_"+file.name);
             } else {
                 removeFile(file);
             }
@@ -141,7 +157,7 @@ $(document).ready(function () {
     });//End dropzone
 
     // middleware for profile
-    if (page_pro == "profile" && getUserId().responseText == "no logged") {
+    if (page_pro == "profile" && getUserId() == "no logged") {
         window.location.href = "index.php?page=login";
     }
 
@@ -150,7 +166,7 @@ $(document).ready(function () {
 
         var object2= {};
         object2 = Object.assign($("#profile_form").serializeJSON(),object2);
-        object2['profile_img'] = $('.avatar')[0].src.split("/")[5]; // also add the profile img
+        object2['img'] = $('.avatar')[0].src.split("/")[5]; // also add the profile img
         object2['location'] = $($("option:selected", $($("#provinces")[0]))[0]).val(); // also add the location
         console.log(object2);
 
@@ -160,7 +176,7 @@ $(document).ready(function () {
             
             $.ajax({
                 type: 'PUT',
-                url: 'module/profile/model/profile.php?ID='+getUserId().responseText,
+                url: 'api/profile/ID-'+getUserId(),
                 data: {data: object2},
                 dataType: 'json',
                 success: function(data){
@@ -242,16 +258,31 @@ function getLocation(filename) {
     }).responseJSON;
 }
 
+// TODO: refactor both functions in one (getInfoCountry, getProvinceFromCode)
 function getInfoCountry(code) {
-    var rtn = {};
     var jsonobj = getLocation("countries.json");
-    console.log(jsonobj);
-    jsonobj.forEach(country => {
-        // console.log(country);
-        if (country['code'] == code)
-            rtn = country;
-        else 
+
+    for (let i = 0; i < jsonobj.length; i++) {
+        if (jsonobj[i]['code'] == code){
+            return {item:jsonobj[i],index:i};
+        }else 
             rtn = "not found";
-        return rtn;
-    });
+    }
+
+    return rtn;
+}
+function getProvinceFromCode(file,country_code) {
+    var jsonobj = getLocation("countries/"+file+".json");    
+
+    for (let i = 0; i < jsonobj.length; i++) {
+        if (jsonobj[i]['code'] == country_code){
+            console.log(jsonobj[i]);
+            
+            return {item:jsonobj[i],index:i};
+        }else 
+            rtn = "not found";
+    }
+
+    return rtn;
+    
 }

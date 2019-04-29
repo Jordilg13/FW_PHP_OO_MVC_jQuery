@@ -30,6 +30,7 @@ switch ($method) {
         break;
     case 'POST':
         $data=json_decode($_POST['data']);
+        // $data=$_POST['data'];
         $meth = "build".$method."Query";
         $response = $object->request($data,$meth);
         if ($response){

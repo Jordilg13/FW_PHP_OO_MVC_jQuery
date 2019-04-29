@@ -49,4 +49,7 @@ $(document).ready(function () {
         });
     });
     
+
+    // delete header image, slider in top
+    $('.inner-banner-w3ls').remove();
 });

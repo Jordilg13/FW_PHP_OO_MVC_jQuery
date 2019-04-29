@@ -1,5 +1,5 @@
 <?
-include($_SERVER['DOCUMENT_ROOT'] . "/web_framework_php/utils/utils.inc.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/web_framework_php/utils/utils.inc.php");
 include($_SERVER['DOCUMENT_ROOT'] . "/web_framework_php/utils/upload.php");
 
 if ((isset($_GET["upload"])) && ($_GET["upload"] == true)){

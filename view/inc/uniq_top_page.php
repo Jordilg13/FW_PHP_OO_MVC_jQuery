@@ -47,7 +47,10 @@
 	<!-- <script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/home/view/js/main_home.js?jsVersion=<? echo _JS_VERSION_ ?>"></script> -->
 
 	<!-- login -->
-	<!-- <script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/login/model/main_login.js?jsVersion=<? echo _JS_VERSION_ ?>"></script> -->
+	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/login/view/js/main_login.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
+	<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/login/view/js/login_functions.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
+	<link rel="stylesheet" href="<? echo _PROJECT_URL_; ?>/module/login/view/css/login.css">
+
 	<!-- <script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/profile/view/js/profile.js?jsVersion=<? echo _JS_VERSION_ ?>"></script> -->
 	<!-- <link rel="stylesheet" href="<? echo _PROJECT_URL_; ?>/module/login/view/main_login_css.css">	 -->
 
@@ -94,7 +97,6 @@
     <script type="text/javascript" src="view/js/jqwidgets/jqwidgets/jqxdropdownlist.js"></script>
     <script type="text/javascript" src="view/js/jqwidgets/scripts/demos.js"></script>
 
-    <script type="text/javascript" src="module/likes/model/likes.js"></script>
 
 
 

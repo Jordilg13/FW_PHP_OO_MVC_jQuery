@@ -1,6 +1,10 @@
 <script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/shop/view/js/main_shop.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
+<script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/module/shop/view/js/shop_map.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
 <script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/shop/functions_shop.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
 <script type="text/javascript" src="<? echo _PROJECT_URL_; ?>/view/js/pagination_functions.js?jsVersion=<? echo _JS_VERSION_ ?>"></script>
+
+
+
 <section class="news2 py-5" id="feedback">
 <form class="form-inline ml-auto search-bar-products">
 		<div class="md-form my-0">
@@ -59,4 +63,66 @@
   </div>
 </div>
 </section>
+<style>/* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+    #map {
+        height: 65%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }</style>
 
+<div id="map"></div>
+
+
+<section id="product_modal">
+        <div id="details_product">
+            <div id="details">
+                <div id="container">
+                    <div class="row">
+                        <div class="col-md-10"><img id="imgProductModal" src=""></div></br>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Id: </div>
+                        <div id="product_codeProductModal" class="col-md-10"></div></br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Name: </div>
+                        <div id="product_nameProductModal" class="col-md-10"></div></br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Brand: </div>
+                        <div id="brandProductModal" class="col-md-10"></div></br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Manufacturer email: </div>
+                        <div id="m_emailProductModal" class="col-md-10"></div></br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Price: </div>
+                        <div id="priceProductModal" class="col-md-10"></div></br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">State of product: </div>
+                        <div id="state_productProductModal" class="col-md-10"></div></br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Type: </div>
+                        <div id="product_typeProductModal" class="col-md-10"></div></br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Processor type: </div>
+                        <div id="processor_typeProductModal" class="col-md-10"></div></br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Available until: </div>
+                        <div id="available_untilProductModal" class="col-md-10"></div></br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

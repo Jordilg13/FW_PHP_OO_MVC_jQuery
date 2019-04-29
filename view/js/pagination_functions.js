@@ -5,7 +5,47 @@ function printProductsPage(data,id_div) {
                                         prod['product_name'],
                                         prod['price'],
                                         prod['product_code']]));
+
+        // adds thee event that redirect to profile
+        $(id_div).children().last().children().last().children().last().children().last().children().last().on("click", function(){
+           
+            $.ajax({
+                type: "GET",
+                url: "api/shop/product_code-"+$(this).attr("name"),
+                dataType: "json",
+                success: function(data){  
+                    $('#imgProductModal').attr("src",data[0]['img']);
+                    $('#imgProductModal').css("height","100px");
+                    // $('#imgProductModal').css("wi","100px");    
+                    for (const key in data[0]) {
+                        console.log(data[0][key]);
+                        $('#'+key+'ProductModal').html(data[0][key]);
+                    }
+                }
+            });
+            $("#details_product").show();
+            $("#product_modal").dialog({
+                width: 850,
+                height: 500,
+                resizable: "false",
+                modal: "true",
+                buttons: {
+                    Ok: function () {
+                        $(this).dialog("close");
+                    }
+                },
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+        });
     });
+            
 }
 function getProductsPage(index,id_div,mod,url) {
     

@@ -2,6 +2,8 @@ $(document).ready(function () {
     var page_url = window.location.href.split("/");
     page_module=page_url[page_url.length -1];
 
+    $('#details_product').hide();
+
     if (page_module === "shop") {
         $.ajax({
             type: "POST",
@@ -68,5 +70,6 @@ $(document).ready(function () {
     $('#submit_button_searcher').on("click", function () {
         fillElements();
     });
+
 
 });

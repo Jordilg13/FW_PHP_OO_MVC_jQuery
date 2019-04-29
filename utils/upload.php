@@ -1,4 +1,5 @@
 <?php
+session_start();
 function upload_files() {
     $error = "";
     $copiarFichero = false;

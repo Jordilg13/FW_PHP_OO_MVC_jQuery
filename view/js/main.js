@@ -129,7 +129,8 @@ function _cb_findItemsByKeywords(root) {
     }
     // html.push('</tbody></table>');
     if (c!="cart_controller") {
-      document.getElementById("api_products").innerHTML = html.join("");
+      // document.getElementById("api_products").innerHTML = html.join("");
+      $('#api_products').html('');
     }
     
 

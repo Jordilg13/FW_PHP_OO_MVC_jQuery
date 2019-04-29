@@ -20,7 +20,7 @@
                     <a class="nav-link text-uppercase" id="home_button" href="<? echo _PROJECT_URL_; ?>" data-tr="Homepage">Homepage</a>
                 </li>
                 <li>
-                    <a class="nav-link text-uppercase" id="products_crud" href="<? echo _PROJECT_URL_; ?>/products_crud/op/list" data-tr="Products">Products</a>
+                    <a class="nav-link text-uppercase" id="products_crud" href="<? echo _PROJECT_URL_; ?>/products_crud" data-tr="Products">Products</a>
                 </li>
                 <li>
                     <a class="nav-link text-uppercase" id="contactus" href="<? echo _PROJECT_URL_; ?>/contactus" data-tr="Contact Us">Contact Us</a>
@@ -41,7 +41,7 @@
 						</div>
 					</li> -->
                 <li>
-                    <a class="nav-link text-uppercase" id="likes_controller" href="<? echo _PROJECT_URL_; ?>/likes/op/list" data-tr="Likes">Likes</a>
+                    <a class="nav-link text-uppercase" id="likes_controller" href="<? echo _PROJECT_URL_; ?>/likes" data-tr="Likes">Likes</a>
                 </li>
                 <li>
                     <a class="nav-link text-uppercase" id="shop_controller" href="<? echo _PROJECT_URL_; ?>/shop" data-tr="Shop">Shop</a>

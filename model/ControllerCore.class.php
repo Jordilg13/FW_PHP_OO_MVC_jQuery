@@ -69,6 +69,8 @@ class ControllerCore{
     }
     protected function buildPOSTQuery($data){
         // Object: {column_name: "value"} 
+        debug("+++");
+        debug($data);
         if ($data!="" && is_object($data)){
             $query = 'INSERT INTO '.$this->tableName;
             $rows = ' (';
@@ -84,6 +86,7 @@ class ControllerCore{
             $rows .= $endKey.')';
             $query .= $rows.$values;
         }
+        debug($query);
         return $query;
     }
     protected function buildPUTQuery($data){
@@ -99,6 +102,7 @@ class ControllerCore{
             }
             $query .= $this->addWhereStatement($data[0]);
         }
+        debug($query);
         return $query;
     }
     protected function buildDELETEQuery($data){

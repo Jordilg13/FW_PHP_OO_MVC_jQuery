@@ -34,7 +34,7 @@ class FrontController {
         $allowedPages=$this->getAllowedPages(); 
         $this->uri=rtrim($this->uri, '/');
         $cutUrl=explode('/',$this->uri);
-        $cutUrl[2] = (!isset($cutUrl[2])) ? "home" : $cutUrl[2];
+        $cutUrl[2] = (!isset($cutUrl[2])) ? "home" : $cutUrl[2]; // if isn't set, set home
 
         // debug($cutUrl[2]);
         if (isset($cutUrl[2]) && $cutUrl[2]=='api') {    //  localhost/web../api/xxxxxx
@@ -44,7 +44,7 @@ class FrontController {
                     $params = explode('-',$getParam);
                     $_GET[$params[0]]=$params[1];
                 }
-                include_once _PROJECT_PATH_.'/module/'.$cutUrl[3].'/model/'.$cutUrl[3].'.php';
+                include_once _PROJECT_PATH_.'/module/'.$cutUrl[3].'/controller/'.$cutUrl[3].'.php';
             } else {
                 header('HTTP/1.0 404 Not found');
             }
